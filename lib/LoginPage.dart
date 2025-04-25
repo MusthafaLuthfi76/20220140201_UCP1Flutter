@@ -36,9 +36,9 @@ class _LoginPageState extends State<LoginPage> {
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
                   labelText: 'Email',
                   icon: Icon(Icons.email),
-                  border: OutlineInputBorder()
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -52,9 +52,9 @@ class _LoginPageState extends State<LoginPage> {
               TextFormField(
                 controller: passwordController,
                 decoration: const InputDecoration(
-                  labelText: 'password',
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
                   icon: Icon(Icons.lock),
-                  border: OutlineInputBorder()
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
