@@ -25,11 +25,18 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              
+              Image(
+                image: AssetImage('assets/images/images.jpeg'),
+                  width: 50,
+                  height: 50,
+              ),
               Text('Selamat Datang Kembali'),
               TextFormField(
                 controller: emailController,
-                decoration: const InputDecoration(labelText: 'Email'),
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  icon: Icon(Icons.email),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
@@ -39,7 +46,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextFormField(
                 controller: passwordController,
-                decoration: const InputDecoration(labelText: 'password'),
+                decoration: const InputDecoration(
+                  labelText: 'password',
+                  icon: Icon(Icons.lock),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your password';
