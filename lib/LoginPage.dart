@@ -26,16 +26,19 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image(
-                image: AssetImage('assets/images/images.jpeg'),
+                image: AssetImage('assets/images/images.png'),
                   width: 50,
                   height: 50,
               ),
-              Text('Selamat Datang Kembali'),
+              Text('Selamat Datang Kembali', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              const SizedBox(height: 20),
+              Text("Email", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(
                   labelText: 'Email',
                   icon: Icon(Icons.email),
+                  border: OutlineInputBorder()
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -44,11 +47,14 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 },
               ),
+              const SizedBox(height: 20),
+              Text("Password", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: passwordController,
                 decoration: const InputDecoration(
                   labelText: 'password',
                   icon: Icon(Icons.lock),
+                  border: OutlineInputBorder()
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -57,7 +63,21 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 },
               ),
-              ElevatedButton(onPressed: () {}, child: Text('Register')),
+              const SizedBox(height: 50),
+              SizedBox(
+                width: 300,
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    
+                  },
+                  label: Text('Masuk'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepOrange,
+                    padding: EdgeInsets.symmetric(vertical: 16),
+                    textStyle: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+              ),
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
@@ -67,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                   //   MaterialPageRoute(builder: (context) => const LoginPage()),
                   // );
                 },
-                child: Text('Sudah punya akun? Login Sekarang!'),
+                child: Text('Belum Punya akun? Daftar Sekarang Sekarang!'),
               ),
             ],
           ),
