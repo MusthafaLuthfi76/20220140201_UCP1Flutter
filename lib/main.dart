@@ -1,3 +1,4 @@
+import 'package:_20220140201_ucp1flutter/HomePage.dart';
 import 'package:_20220140201_ucp1flutter/LoginPage.dart';
 import 'package:_20220140201_ucp1flutter/RegisterPage.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const LoginPage(),
+      home: const HomePage(),
     );
   }
 }
