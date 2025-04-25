@@ -27,34 +27,65 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               Image(
                 image: AssetImage('assets/images/images.png'),
-                  width: 50,
-                  height: 50,
+                  width: 150,
+                  height: 150,
               ),
               Text('Daftar Akun Baru', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 20),
-              Text("Email", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Nama Lengkap', style: TextStyle(fontWeight: FontWeight.bold)),
+              ),
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(
+                  labelText: 'Nama Lengkap',
+                  prefixIcon: Icon(Icons.person, color: Colors.brown),
                   border: OutlineInputBorder(),
-                  labelText: 'Email',
-                  icon: Icon(Icons.email),
+                  fillColor: Colors.white,
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
+                    return 'Please enter your Name';
                   }
                   return null;
                 },
               ),
+              
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Email', style: TextStyle(fontWeight: FontWeight.bold)),
+              ),
+              Row(
+                children: [
+                  TextFormField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      prefixIcon: Icon(Icons.email_outlined, color: Colors.brown),
+                      border: OutlineInputBorder(),
+                      fillColor: Colors.white,
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your email';
+                      }
+                      return null;
+                    },
+                  ),
+                ],
+              ),
               const SizedBox(height: 20),
-              Text("Password", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Password', style: TextStyle(fontWeight: FontWeight.bold)),
+              ),
               TextFormField(
                 controller: passwordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
-                  icon: Icon(Icons.lock),
+                  prefixIcon: Icon(Icons.lock, color: Colors.brown),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -70,11 +101,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   onPressed: () {
                     
                   },
-                  label: Text('Masuk'),
+                  label: Text('Register'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrange,
                     padding: EdgeInsets.symmetric(vertical: 16),
                     textStyle: TextStyle(fontSize: 16, color: Colors.white),
+                    foregroundColor: Colors.white
                   ),
                 ),
               ),

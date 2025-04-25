@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock, color: Colors.brown),
+                  prefixIcon: Icon(Icons.lock),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
