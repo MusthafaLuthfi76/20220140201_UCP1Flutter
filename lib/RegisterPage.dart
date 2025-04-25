@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -27,23 +27,18 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Image(
                 image: AssetImage('assets/images/images.png'),
-                  width: 150,
-                  height: 150,
+                  width: 50,
+                  height: 50,
               ),
+              Text('Daftar Akun Baru', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 20),
-              Text('Selamat Datang Kembali', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-              const SizedBox(height: 40),
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Email', style: TextStyle(fontWeight: FontWeight.bold)),
-              ),
+              Text("Email", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email_outlined, color: Colors.brown),
                   border: OutlineInputBorder(),
-                  fillColor: Colors.white,
+                  labelText: 'Email',
+                  icon: Icon(Icons.email),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -53,16 +48,13 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
               const SizedBox(height: 20),
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Password', style: TextStyle(fontWeight: FontWeight.bold)),
-              ),
+              Text("Password", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: passwordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock, color: Colors.brown),
+                  icon: Icon(Icons.lock),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {

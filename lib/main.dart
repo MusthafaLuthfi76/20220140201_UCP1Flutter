@@ -1,4 +1,5 @@
 import 'package:_20220140201_ucp1flutter/LoginPage.dart';
+import 'package:_20220140201_ucp1flutter/RegisterPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
