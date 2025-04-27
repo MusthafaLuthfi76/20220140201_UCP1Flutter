@@ -14,11 +14,18 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
 
-  bool obscureText = true;
+  bool obscurePassword = true;
+  bool obscureRePassword = true;
 
-  void toggleVisibility() {
+  void togglePasswordVisibility() {
     setState(() {
-      obscureText = !obscureText;
+      obscurePassword = !obscurePassword;
+    });
+  }
+
+  void toggleRePasswordVisibility() {
+    setState(() {
+      obscureRePassword = !obscureRePassword;
     });
   }
 
@@ -230,13 +237,14 @@ class _RegisterPageState extends State<RegisterPage> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                         ),
+                        obscureText: obscurePassword,
                         decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.lock, color: Colors.brown),
                           suffixIcon: IconButton(
                             icon: Icon(
-                              obscureText ? Icons.visibility_off : Icons.visibility,
+                              obscurePassword ? Icons.visibility_off : Icons.visibility,
                             ),
-                            onPressed: toggleVisibility,
+                            onPressed: togglePasswordVisibility,
                           ),
                           hintText: 'Password',
                           labelStyle: const TextStyle(
@@ -277,13 +285,14 @@ class _RegisterPageState extends State<RegisterPage> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                         ),
+                        obscureText: obscureRePassword,
                         decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.lock, color: Colors.brown),
                           suffixIcon: IconButton(
                               icon: Icon(
-                                obscureText ? Icons.visibility_off : Icons.visibility,
+                                obscureRePassword ? Icons.visibility_off : Icons.visibility,
                               ),
-                              onPressed: toggleVisibility,
+                              onPressed: toggleRePasswordVisibility,
                             ),
                           hintText: 'Konfirmasi password',
                           labelStyle: const TextStyle(
@@ -315,7 +324,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(
                   height: 15,
                 ),
-                
+
               const SizedBox(height: 50),
               SizedBox(
                 width: 300,
