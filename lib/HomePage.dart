@@ -49,8 +49,8 @@ class _HomePageState extends State<HomePage> {
             Center(
               child: Image(
                   image: AssetImage('assets/images/promoo.png',),
-                    width: 300,
-                    height: 200,
+                    width: 600,
+                    height: 600,
               ),
             ),
             Column(
