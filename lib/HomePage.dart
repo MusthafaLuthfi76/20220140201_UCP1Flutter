@@ -37,45 +37,93 @@ class _HomePageState extends State<HomePage> {
                       IconButton(onPressed: (){}, icon: Icon(Icons.logout, color: Colors.white,)),
                     ],
                   )
-            
-          ],
+            ],
+          ),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.asset(
+            'assets/images/promoo.png',
+            width: double.infinity,
+            height: 160,
+            fit: BoxFit.cover,
+          ),
+        ),
+        const SizedBox(height: 24),
+
+        GridView.count(
+          crossAxisCount: 2,
+          crossAxisSpacing: 16,
+          mainAxisSpacing: 16,
+          childAspectRatio: 1.1,
+          physics: NeverScrollableScrollPhysics(),
           children: [
-            Center(
-              child: Image(
-                  image: AssetImage('assets/images/promoo.png',),
-                    width: 600,
-                    height: 600,
-              ),
-            ),
-            Column(
-              
-            ),
-            const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                    (route) => false,
-                  );
-                },
-                icon: Icon(Icons.check_circle_outline),
-                label: Text('Selesaikan Pesanan'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepOrange,
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  textStyle: TextStyle(fontSize: 16),
+            ElevatedButton(
+              onPressed: () {
+
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepOrange,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
                 ),
+                padding: EdgeInsets.all(16),
+                elevation: 4,
+                shadowColor: Colors.black26,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.videogame_asset_rounded, size: 40, color: Colors.white),
+                  SizedBox(height: 10),
+                  Text(
+                'Data Piket',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+                  ),
+                ],
+              ),
+                ),
+                ElevatedButton(
+              onPressed: () {
+
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepOrange,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                padding: EdgeInsets.all(16),
+                elevation: 4,
+                shadowColor: Colors.black26,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.dashboard_customize_rounded, size: 40, color: Colors.white),
+                  SizedBox(height: 10),
+                  Text(
+                'Data Pelanggan',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+                  ),
+                ],
               ),
             ),
+              ],
+            ),
+            
           ],
         ),
       ),
