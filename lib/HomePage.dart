@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
             CircleAvatar(
                     radius: 23,
                     backgroundImage: AssetImage(
-                      'assets/images/images.png',
+                      'assets/images/jefri.jpeg',
                     ),
             ),
             const SizedBox(width: 10),
@@ -26,11 +26,11 @@ class _HomePageState extends State<HomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Selamat Datang',style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: Colors.white),),
-                      Text('Admin', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),),
+                      Text('Selamat Datang',style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.white),),
+                      Text('Admin', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
                     ],
                   ),
-                  const SizedBox(width: 170),
+                  const SizedBox(width: 150),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
