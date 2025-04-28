@@ -1,3 +1,4 @@
+import 'package:_20220140201_ucp1flutter/DetailTugas.dart';
 import 'package:flutter/material.dart';
 
 class Gudang extends StatefulWidget {
@@ -143,10 +144,22 @@ class _GudangState extends State<Gudang> {
                       itemBuilder: (context, index) {
                         final tugas = _listTugas[index];
                         return Card(
+                          color: Colors.deepOrange,
                           child: ListTile(
-                            title: Text(tugas['tugas']),
-                            subtitle: Text(
-                                '${tugas['nama']} - ${tugas['tanggal'].day}/${tugas['tanggal'].month}/${tugas['tanggal'].year}'),
+                            title: Text(tugas['tugas'], style: TextStyle(color: Colors.white),),
+                            trailing: Icon(Icons.chevron_right, color: Colors.white),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DetailTugas(
+                                    namaTugas: tugas['tugas'],
+                                    namaAnggota: tugas['nama'],
+                                    tanggal: tugas['tanggal'],
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         );
                       },
