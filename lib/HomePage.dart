@@ -23,107 +23,141 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(width: 10),
             SizedBox(width: 8),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Selamat Datang',style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.white),),
-                      Text('Admin', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
-                    ],
-                  ),
-                  const SizedBox(width: 150),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      IconButton(onPressed: (){}, icon: Icon(Icons.logout, color: Colors.white,)),
-                    ],
-                  )
-            ],
-          ),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.asset(
-            'assets/images/promoo.png',
-            width: double.infinity,
-            height: 160,
-            fit: BoxFit.cover,
-          ),
-        ),
-        const SizedBox(height: 24),
-
-        GridView.count(
-          crossAxisCount: 2,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-          childAspectRatio: 1.1,
-          physics: NeverScrollableScrollPhysics(),
-          children: [
-            ElevatedButton(
-              onPressed: () {
-
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepOrange,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding: EdgeInsets.all(16),
-                elevation: 4,
-                shadowColor: Colors.black26,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.videogame_asset_rounded, size: 40, color: Colors.white),
-                  SizedBox(height: 10),
-                  Text(
-                'Data Piket',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-                  ),
-                ],
-              ),
-                ),
-                ElevatedButton(
-              onPressed: () {
-
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepOrange,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding: EdgeInsets.all(16),
-                elevation: 4,
-                shadowColor: Colors.black26,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.dashboard_customize_rounded, size: 40, color: Colors.white),
-                  SizedBox(height: 10),
-                  Text(
-                'Data Pelanggan',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-                  ),
-                ],
-              ),
-            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Selamat Datang',style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.white),),
+                Text('Admin', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
               ],
             ),
-            
+            const SizedBox(width: 150),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+              IconButton(onPressed: (){}, icon: Icon(Icons.logout, color: Colors.white,)),
+              ],
+            )
+          ],
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                'assets/images/promoo.png',
+                width: double.infinity,
+                height: 160,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 40),
+            GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 1.1,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+          
+                    },
+                    style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepOrange,
+                    shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    ),
+                    padding: EdgeInsets.all(16),
+                    elevation: 4,
+                    shadowColor: Colors.black26,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.videogame_asset_rounded, size: 40, color: Colors.white),
+                      SizedBox(height: 10),
+                      Text(
+                        'Data Piket',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+          
+                },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepOrange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    padding: EdgeInsets.all(16),
+                    elevation: 4,
+                    shadowColor: Colors.black26,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.dashboard_customize_rounded, size: 40, color: Colors.white),
+                      SizedBox(height: 10),
+                      Text(
+                        'Data Pelanggan',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepOrange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 64),
+                      elevation: 4,
+                      shadowColor: Colors.black26,
+                    ),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.list_alt_rounded,
+                            size: 40, color: Colors.white),
+                        SizedBox(height: 10,),
+                        Text(
+                          'Barang Masuk/Keluar',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
