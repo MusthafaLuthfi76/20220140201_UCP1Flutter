@@ -86,17 +86,18 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/login');
-                  // Navigator.pop(context);
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const LoginPage()),
-                  // );
-                },
-                child: Text('Belum Punya akun? Daftar Sekarang Sekarang!'),
-              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Belum memiliki akun? Silahkan'),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/register');
+                    },
+                    child: Text('Daftar Disini!'),
+                  ),
+                ],
+              )
             ],
           ),
         ),

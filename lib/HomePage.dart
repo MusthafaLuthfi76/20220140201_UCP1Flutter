@@ -1,3 +1,7 @@
+import 'package:_20220140201_ucp1flutter/Barang.dart';
+import 'package:_20220140201_ucp1flutter/Gudang.dart';
+import 'package:_20220140201_ucp1flutter/LoginPage.dart';
+import 'package:_20220140201_ucp1flutter/PelangganPage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,7 +38,13 @@ class _HomePageState extends State<HomePage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-              IconButton(onPressed: (){}, icon: Icon(Icons.logout, color: Colors.white,)),
+              IconButton(onPressed: (){
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    (route) => false,
+                  );
+              }, icon: Icon(Icons.logout, color: Colors.white,)),
               ],
             )
           ],
@@ -65,7 +75,10 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-          
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Gudang()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrange,
@@ -94,7 +107,10 @@ class _HomePageState extends State<HomePage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-          
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const PelangganPage()),
+                      );
                 },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrange,
@@ -128,7 +144,12 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const BarangPage()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepOrange,
                       shape: RoundedRectangleBorder(
