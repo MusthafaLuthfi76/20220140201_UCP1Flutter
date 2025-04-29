@@ -23,13 +23,14 @@ class DetailPelangganPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrange,
-        title: Text('Detail $nama'),
+        title: Text('Detail $nama', style: TextStyle(color: Colors.white),),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -39,7 +40,9 @@ class DetailPelangganPage extends StatelessWidget {
             const Center(
               child: CircleAvatar(  
                 radius: 50,
-                backgroundImage: NetworkImage('assets/images/jefri.jpeg'), 
+                backgroundImage: AssetImage(
+                      'assets/images/jefri.jpeg',
+                    ),
               ),
             ),
             const SizedBox(height: 16),
@@ -53,21 +56,22 @@ class DetailPelangganPage extends StatelessWidget {
             Center(
               child: Text(
                 email,
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 13),
               ),
             ),
              const SizedBox(height: 8),
             Center(
               child: Text(
                 noHp,
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 11),
               ),
             ),
             const SizedBox(height: 24),
             const Text('Alamat', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
             const SizedBox(height: 8),
             Container(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(12.0),
@@ -84,7 +88,8 @@ class DetailPelangganPage extends StatelessWidget {
                       const Text('Provinsi', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                       const SizedBox(height: 8),
                       Container(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                        alignment: Alignment.centerLeft,
                          decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(12.0),
@@ -102,7 +107,8 @@ class DetailPelangganPage extends StatelessWidget {
                       const Text('Kode Pos', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                       const SizedBox(height: 8),
                       Container(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                        alignment: Alignment.centerLeft,
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(12.0),
