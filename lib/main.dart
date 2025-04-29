@@ -1,3 +1,4 @@
+import 'package:_20220140201_ucp1flutter/Barang.dart';
 import 'package:_20220140201_ucp1flutter/Gudang.dart';
 import 'package:_20220140201_ucp1flutter/HomePage.dart';
 import 'package:_20220140201_ucp1flutter/LoginPage.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const PelangganPage(),
+      home: const BarangPage(),
     );
   }
 }
