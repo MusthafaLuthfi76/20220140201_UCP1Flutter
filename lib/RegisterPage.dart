@@ -1,3 +1,4 @@
+import 'package:_20220140201_ucp1flutter/HomePage.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -64,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 56,
                   child: TextField(
                     controller: nameController,
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.left,
                     style: const TextStyle(
                       color: Color(0xFF393939),
                       fontSize: 13,
@@ -72,13 +73,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       fontWeight: FontWeight.w400,
                     ),
                     decoration: const InputDecoration(
-                      labelText: 'Nama Lengkap',
-                      labelStyle: TextStyle(
-                        color: Color(0xFF755DC1),
-                        fontSize: 15,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                      ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
@@ -330,7 +324,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: 300,
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(email: emailController.text, nama: nameController.text,),
+                      ),
+                    );
                   },
                   label: Text('Daftar', style: TextStyle(fontSize: 18, color: Colors.white)),
                   style: ElevatedButton.styleFrom(
