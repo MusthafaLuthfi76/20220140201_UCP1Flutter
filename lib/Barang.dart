@@ -2,7 +2,13 @@ import 'package:_20220140201_ucp1flutter/DetailBarangPage.dart';
 import 'package:flutter/material.dart';
 
 class BarangPage extends StatefulWidget {
-  const BarangPage({super.key});
+  final String email;
+  final String nama;
+  const BarangPage({
+    required this.email,
+    required this.nama,
+    super.key
+    });
 
   @override
   State<BarangPage> createState() => _BarangPageState();
@@ -151,6 +157,8 @@ class _BarangPageState extends State<BarangPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => DetailBarangPage(
+                              email: widget.email,
+                              nama: widget.nama,
                               tanggal: tanggalController.text,
                               jenisTransaksi: selectedJenisTransaksi!,
                               jenisBarang: selectedJenisBarang!,

@@ -1,3 +1,4 @@
+import 'package:_20220140201_ucp1flutter/HomePage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +11,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController namaController = TextEditingController();
 
   @override
   void initState() {
@@ -76,9 +78,14 @@ class _LoginPageState extends State<LoginPage> {
                 width: 300,
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(email: emailController.text, nama: namaController.text,),
+                      ),
+                    );
                   },
-                  label: Text('Masuk'),
+                  label: Text('Masuk', style: TextStyle(color: Colors.white),),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrange,
                     padding: EdgeInsets.symmetric(vertical: 16),

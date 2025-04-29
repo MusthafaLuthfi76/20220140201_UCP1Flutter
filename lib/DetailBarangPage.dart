@@ -2,6 +2,8 @@ import 'package:_20220140201_ucp1flutter/HomePage.dart';
 import 'package:flutter/material.dart';
 
 class DetailBarangPage extends StatelessWidget {
+  final String email;
+  final String nama;
   final String tanggal;
   final String jenisTransaksi;
   final String jenisBarang;
@@ -11,13 +13,15 @@ class DetailBarangPage extends StatelessWidget {
 
   const DetailBarangPage({
     super.key,
+    required this. email,
+    required this. nama,
     required this.tanggal,
     required this.jenisTransaksi,
     required this.jenisBarang,
     required this.jumlahBarang,
     required this.hargaSatuan,
     required this.totalHarga,
-    });
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +33,21 @@ class DetailBarangPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(height: 20,),
+              const SizedBox(height: 20),
               const Icon(Icons.check_circle, color: Colors.green, size: 100),
               const SizedBox(height: 16),
-              const Text('Data Berhasil Disimpan', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text(
+                'Data Berhasil Disimpan',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Tanggal', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const Text(
+                    'Tanggal',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   Text(tanggal),
                 ],
               ),
@@ -45,7 +55,10 @@ class DetailBarangPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Jenis Transaksi', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const Text(
+                    'Jenis Transaksi',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   Text(jenisTransaksi),
                 ],
               ),
@@ -53,7 +66,10 @@ class DetailBarangPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Jenis Barang', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const Text(
+                    'Jenis Barang',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   Text(jenisBarang),
                 ],
               ),
@@ -61,7 +77,10 @@ class DetailBarangPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Jumlah Barang', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const Text(
+                    'Jumlah Barang',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   Text(jumlahBarang.toString()),
                 ],
               ),
@@ -69,7 +88,10 @@ class DetailBarangPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Harga Satuan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const Text(
+                    'Harga Satuan',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   Text('Rp. $hargaSatuan'),
                 ],
               ),
@@ -77,7 +99,10 @@ class DetailBarangPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Total Harga', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const Text(
+                    'Total Harga',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
                   Text('Rp. $totalHarga'),
                 ],
               ),
@@ -87,16 +112,30 @@ class DetailBarangPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(
+                      builder:
+                          (context) => HomePage(
+                            email: email,
+                            nama: nama,
+                          ),
+                    ),
                     (route) => false,
                   );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepOrange,
-                  padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 100,
+                    vertical: 14,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
                 ),
-                child: const Text('Selesai', style: TextStyle(color: Colors.white),),
+                child: const Text(
+                  'Selesai',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),
