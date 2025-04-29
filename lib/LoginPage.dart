@@ -13,9 +13,17 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController namaController = TextEditingController();
 
+  bool obscurePassword = true;
+
   @override
   void initState() {
     super.initState();
+  }
+
+  void togglePasswordVisibility() {
+    setState(() {
+      obscurePassword = !obscurePassword;
+    });
   }
 
   @override
@@ -74,9 +82,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextFormField(
                 controller: passwordController,
-                decoration: const InputDecoration(
+                obscureText: obscurePassword,
+                decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.lock),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      obscurePassword ? Icons.visibility_off : Icons.visibility,
+                    ),
+                    onPressed: togglePasswordVisibility,
+                  ),
                   enabledBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide: BorderSide(
