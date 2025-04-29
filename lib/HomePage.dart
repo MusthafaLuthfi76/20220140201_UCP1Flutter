@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset(
                 'assets/images/promoo.png',
                 width: double.infinity,
-                height: 160,
+                height: 300,
                 fit: BoxFit.cover,
               ),
             ),
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 64),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 50),
                       elevation: 4,
                       shadowColor: Colors.black26,
                     ),
