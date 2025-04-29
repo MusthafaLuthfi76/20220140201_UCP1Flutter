@@ -17,23 +17,6 @@ class _PelangganPageState extends State<PelangganPage> {
   final kodePosController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  void _simpanDataPelanggan() {
-  if (_formKey.currentState!.validate()) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => DetailPelangganPage(
-          nama: namaController.text,
-          email: emailController.text,
-          noHp: noHpController.text,
-          alamat: alamatController.text,
-          provinsi: provinsiController.text,
-          kodePos: kodePosController.text,
-        ),
-      ),
-    );
-  }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +35,9 @@ class _PelangganPageState extends State<PelangganPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
-          child: Column(
+          child: Form(
+            key: _formKey,
+            child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text('Nama Cust', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -201,7 +186,23 @@ class _PelangganPageState extends State<PelangganPage> {
               ),
               const SizedBox(height: 24),
               ElevatedButton(
-                onPressed: _simpanDataPelanggan,
+                onPressed: (){
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPelangganPage(
+                          nama: namaController.text,
+                          email: emailController.text,
+                          noHp: noHpController.text,
+                          alamat: alamatController.text,
+                          provinsi: provinsiController.text,
+                          kodePos: kodePosController.text,
+                        ),
+                      ),
+                    );
+                  }
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepOrange,
                   foregroundColor: Colors.white,
@@ -225,6 +226,7 @@ class _PelangganPageState extends State<PelangganPage> {
                 child: const Text('Reset'),
               ),
             ],
+          ),
           ),
         ),
       ),
