@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 Text(widget.email, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
               ],
             ),
-            const SizedBox(width: 150),
+            const Spacer(),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [

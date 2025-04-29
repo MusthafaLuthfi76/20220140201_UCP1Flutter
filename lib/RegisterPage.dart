@@ -14,6 +14,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController repassController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   bool obscurePassword = true;
   bool obscureRePassword = true;
@@ -63,7 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               SizedBox(
                   height: 56,
-                  child: TextField(
+                  child: TextFormField(
                     controller: nameController,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
@@ -89,6 +90,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       prefixIcon: Icon(Icons.account_circle, color: Colors.brown)
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Nama tidak boleh kosong';
+                      }
+                      return null;
+                    },
                   ),
                 ),
                 const SizedBox(
@@ -118,7 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(
                       width: 180,
                       height: 56,
-                      child: TextField(
+                      child: TextFormField(
                         controller: emailController,
                         textAlign: TextAlign.start,
                         style: const TextStyle(
@@ -151,6 +158,12 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Email tidak boleh kosong';
+                          }
+                          return null;
+                        },
                       ),
                     ),
 
@@ -159,7 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(
                       width: 187,
                       height: 56,
-                      child: TextField(
+                      child: TextFormField(
                         controller: phoneController,
                         textAlign: TextAlign.start,
                         style: const TextStyle(
@@ -192,6 +205,12 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'No HP tidak boleh kosong';
+                          }
+                          return null;
+                        },
                       ),
                     ),
                   ],
@@ -222,7 +241,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(
                       width: 180,
                       height: 56,
-                      child: TextField(
+                      child: TextFormField(
                         controller: passwordController,
                         textAlign: TextAlign.start,
                         style: const TextStyle(
@@ -262,6 +281,12 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Nama tidak boleh kosong';
+                          }
+                          return null;
+                        },
                       ),
                     ),
 
@@ -270,7 +295,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     SizedBox(
                       width: 187,
                       height: 56,
-                      child: TextField(
+                      child: TextFormField(
                         controller: repassController,
                         textAlign: TextAlign.start,
                         style: const TextStyle(
@@ -310,6 +335,15 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Konfirmasi password tidak boleh kosong';
+                          }
+                          if (value != passwordController.text) {
+                            return 'Password tidak cocok';
+                          }
+                          return null;
+                        },
                       ),
                     ),
                   ],
@@ -324,12 +358,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: 300,
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(email: emailController.text, nama: nameController.text,),
-                      ),
-                    );
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(
+                            email: emailController.text,
+                            nama: nameController.text,
+                          ),
+                        ),
+                      );
+                    }
                   },
                   label: Text('Daftar', style: TextStyle(fontSize: 18, color: Colors.white)),
                   style: ElevatedButton.styleFrom(

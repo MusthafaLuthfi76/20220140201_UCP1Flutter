@@ -42,10 +42,23 @@ class _LoginPageState extends State<LoginPage> {
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(
-                  labelText: 'Email',
                   prefixIcon: Icon(Icons.email_outlined, color: Colors.brown),
                   border: OutlineInputBorder(),
                   fillColor: Colors.white,
+                  enabledBorder: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Color(0xFF837E93),
+                            ),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Color(0xFF9F7BFF),
+                            ),
+                          ),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -63,8 +76,21 @@ class _LoginPageState extends State<LoginPage> {
                 controller: passwordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Password',
                   prefixIcon: Icon(Icons.lock),
+                  enabledBorder: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Color(0xFF837E93),
+                            ),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Color(0xFF9F7BFF),
+                            ),
+                          ),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
