@@ -21,6 +21,12 @@ class _BarangPageState extends State<BarangPage> {
   final TextEditingController jumlahController = TextEditingController();
   final TextEditingController hargaController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final Map<String, int> hargaBarang = {
+  'Carrier': 500000,
+  'Sleeping Bag': 250000,
+  'Sepatu': 300000,
+  'Tenda': 750000,
+};
 
 
   Future<void> _selectDate(BuildContext context) async {
@@ -91,13 +97,18 @@ class _BarangPageState extends State<BarangPage> {
                     hintText: 'Jenis Barang',
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   ),
-                  items: const [
-                    DropdownMenuItem(value: 'Carrier', child: Text('Carrier')),
-                    DropdownMenuItem(value: 'Sleeping Bag', child: Text('Sleeping Bag')),
-                    DropdownMenuItem(value: 'Sepatu', child: Text('Sepatu')),
-                    DropdownMenuItem(value: 'Tenda', child: Text('Tenda')),
-                  ],
-                  onChanged: (value) => setState(() => selectedJenisBarang = value),
+                  items: hargaBarang.keys.map((String jenis) {
+                      return DropdownMenuItem<String>(
+                        value: jenis,
+                        child: Text(jenis),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        selectedJenisBarang = value;
+                        hargaController.text = hargaBarang[value!].toString(); // ← harga otomatis terisi
+                      });
+                    },
                   validator: (value) => value == null ? 'Pilih jenis barang' : null,
                 ),
                 const SizedBox(height: 20),
